@@ -13,12 +13,16 @@ export default async function handler(req, res) {
 
     if (req.method === 'POST') {
         try {
+            // Extract data from the request body
+            const { title, message, target_url, image, action_buttons } = req.body;
+
             // Make request to Webpushr API
             const response = await axios.post('https://api.webpushr.com/v1/notification/send/all', {
-                title: req.body.title,
-                message: req.body.message,
-                target_url: req.body.target_url,
-                icon: req.body.icon
+                title: title,
+                message: message,
+                target_url: target_url,
+                image: image,
+                action_buttons: action_buttons
             }, {
                 headers: {
                     'Content-Type': 'application/json',
