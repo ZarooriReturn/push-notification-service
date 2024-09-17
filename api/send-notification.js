@@ -22,6 +22,7 @@ export default async function handler(req, res) {
                 message: message,
                 target_url: target_url,
                 image: image,
+                user_uid: userUid,
                 action_buttons: action_buttons
             }, {
                 headers: {
